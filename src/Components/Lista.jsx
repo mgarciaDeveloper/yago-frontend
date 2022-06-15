@@ -13,6 +13,7 @@ import IconButton from "@mui/material/IconButton";
 export default function Lista(props) {
   
   return (
+   props.list.length !== 0 ?
    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {props.list.map((eo,i)=>{
       return  <>   
@@ -70,6 +71,7 @@ export default function Lista(props) {
       <Divider variant="inset" component="li" />
        </> })}
     </List>
+    :<div></div>
   
   );
 }
