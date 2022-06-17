@@ -1,5 +1,5 @@
 import React from "react";
-import Lista from "../Components/Lista";
+import Lista from "../Components/Lista/Lista";
 import Moviesinput from  "../Components/Moviesinput/listinput"
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';

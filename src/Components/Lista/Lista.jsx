@@ -40,7 +40,7 @@ export default function Lista(props) {
             </Typography>
           </React.Fragment>
           <IconButton onClick={()=>{
-           props.delete(eo)
+           props.delete(eo,i)
 
           }}
                     edge="end"
