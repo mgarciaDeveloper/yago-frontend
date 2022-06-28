@@ -20,6 +20,14 @@ export default function Books(props) {
   const navigate = useNavigate();
   return (
     <div>
+      <Button
+        onClick={() => {
+          navigate("/home");
+        }}
+      >
+        Home
+      </Button>
+
       <Listinput
         apagarlista={(listavazia) => {
           return setBooks([]);
@@ -32,14 +40,7 @@ export default function Books(props) {
           return setBooks([valordofilho, ...listofBooks]);
         }}
       />
-      <Button
-        onClick={() => {
-          navigate("/home");
-        }}
-      >
-        Home
-      </Button>
-      Hello World! I'm at Books
+
       <Lista
         delete={(valordofilho, indexDoFilho) => {
           return setBooks(

@@ -17,7 +17,7 @@ category: 'Infantil'
 ]
 const navigate = useNavigate()
 const [movies,setMovies] = useState(lmovies)
-return <div style={{width:"90%"}}> 
+return <div> 
 <Button
       onClick={()=>{
         navigate('/home')
