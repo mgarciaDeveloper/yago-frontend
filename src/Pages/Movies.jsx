@@ -4,6 +4,10 @@ import Listinput from "../Components/Moviesinput/listinput";
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import { Category } from "@mui/icons-material";
+import { Stack } from "@mui/material";
+import { Pie } from "@antv/g2plot";
+import DemoPie from "../Components/Charts/Pie"
+import { padding } from "@mui/system";
 
 export default function Movies() {
 const lmovies =[ 
@@ -35,6 +39,10 @@ return <div>
     // console.log([...lmovies])
     return setMovies([valordofilho,...movies])
 }} />
+<Stack
+direction="row"
+sx={{width:"100%"}}
+spacing={4}>
 <Lista list={movies} 
 delete={(valorclicado)=>{
     return setMovies([...movies].filter((e,i)=>{
@@ -42,6 +50,8 @@ delete={(valorclicado)=>{
     }))
 }}
 />
+<div style={{width:"500px"}}> <DemoPie todasAsObras={movies}/></div>
+</Stack>
 </div>
 }
  

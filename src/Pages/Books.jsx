@@ -2,9 +2,11 @@ import React from "react";
 import { useState } from "react";
 import Lista from "../Components/Lista/Lista";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 import Listinput from "../Components/Moviesinput/listinput";
-
+import { Pie } from "@antv/g2plot";
+import DemoPie from "../Components/Charts/Pie"
+import { padding } from "@mui/system";
 export default function Books(props) {
   const [listofBooks, setBooks] = useState([
     {
@@ -40,7 +42,13 @@ export default function Books(props) {
           return setBooks([valordofilho, ...listofBooks]);
         }}
       />
+     <Stack
+     direction="row"
+     sx={{width:"100%"}}
+     spacing={4}
+     
 
+      >
       <Lista
         delete={(valordofilho, indexDoFilho) => {
           return setBooks(
@@ -51,6 +59,8 @@ export default function Books(props) {
         }}
         list={listofBooks}
       />
+     <div style={{width:"500px"}}> <DemoPie todasAsObras={listofBooks}/></div>
+     </Stack>
     </div>
   );
 }
