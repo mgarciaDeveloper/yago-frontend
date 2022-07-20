@@ -7,6 +7,7 @@ import Home from "./Pages/Home";
 import Matriz from "./Components/Matriz/matriz";
 import "./App.css";
 import { Pie } from "@antv/g2plot";
+import Login from "./Pages/Login";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Matriz>
               <BrowserRouter>
                 <Routes>
+                  <Route path="/login" exact element={<Login />} />
                   <Route path="/" exact element={<Home />} />
                   <Route path="/home" exact element={<Home />} />
                   <Route path="/books" exact element={<Books />} />
