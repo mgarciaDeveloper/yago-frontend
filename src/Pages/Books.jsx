@@ -16,14 +16,6 @@ export default function Books(props) {
   const navigate = useNavigate();
   return (
     <div>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        {" "}
-        Home
-      </button>
       <ListInput
         addItem={(valor) => {
           setBooks([valor, ...listOfBooks]);

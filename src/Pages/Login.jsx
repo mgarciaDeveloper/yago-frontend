@@ -43,7 +43,12 @@ export default function Login(props) {
       withCredentials: true,
       url: `${variables.backUrl}/login`,
     }).then((res) => {
-      res.data.erro ? alert(res.data.mensagem) : navigate("/home");
+      if(res.data.erro){
+        alert(res.data.mensagem)
+      } else {
+        navigate("/home");
+        window.location.reload();
+      }
     });
   }
   return (

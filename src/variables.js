@@ -1,5 +1,5 @@
 const variables = {
-  backUrl: "http://192.168.0.9:4000",
+  backUrl: "http://192.168.0.8:4000",
 };
 
 export default variables;

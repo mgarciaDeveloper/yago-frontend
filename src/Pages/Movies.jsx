@@ -15,14 +15,6 @@ export default function Home(props) {
   const navigate = useNavigate();
   return (
     <div>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        {" "}
-        Home
-      </button>{" "}
       Hello World! I'm at Movies
       <ListInput
         addItem={(valor) => {
