@@ -44,7 +44,6 @@ export default function Login(props) {
       url: `${variables.backUrl}/login`,
     }).then((res) => {
       if(res.data.erro){
-        alert(res.data.mensagem)
       } else {
         navigate("/home");
         window.location.reload();

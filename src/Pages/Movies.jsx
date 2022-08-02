@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Lista from "../Components/Lista/Lista";
 import ListInput from "../Components/Input/ListInput";
 import { useNavigate } from "react-router-dom";
-export default function Home(props) {
+export default function Movies(props) {
   const [listOfMovies, setlist] = useState([
     {
       title: "Interestellar",

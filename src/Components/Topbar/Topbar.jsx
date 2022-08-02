@@ -16,6 +16,7 @@ export default function Topbar() {
             url: `${variables.backUrl}/logout`,
         }).then((res) => {
             res.data.erro ? alert(res.data.mensagem) : navigate("/login");
+            window.location.reload();
         });
     }
 

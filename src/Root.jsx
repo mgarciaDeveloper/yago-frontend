@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Paper, Stack, Typography, IconButton } from "@mui/material";
-import LogoutIcon from '@mui/icons-material/Logout';
-import HomeIcon from '@mui/icons-material/Home';
+
 import Books from "./Pages/Books";
 import Movies from "./Pages/Movies";
 import Home from "./Pages/Home";
