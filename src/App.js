@@ -54,7 +54,12 @@ function App() {
         <Matriz>
           {/*V --- A essência da aplicação está aqui!! --- V */}
           {isAuth
-            ? <Home /> 
+            ?  <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" exact element={<Home />} />
+              <Route path="/books" exact element={<Books />} />
+              <Route path="/movies" exact element={<Movies />} />
+            </Routes>
             : <Login />
           }
           {/*^ --- A essência da aplicação está aqui!! --- ^ */}
