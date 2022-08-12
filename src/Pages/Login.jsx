@@ -1,9 +1,8 @@
 // React and NPM imports
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-
-
+import variables from "../variables";
+import Axios from "axios";
 
 //Styling imports
 
@@ -19,20 +18,14 @@ import InputLabel from "@mui/material/InputLabel";
 
 //------- MUI icons
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import Visibility from "@mui/icons-material/Visibility";
 import IconButton from "@mui/material/IconButton";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import Axios from "axios";
-//urls
-import variables from "../variables";
-
 
 export default function Login(props){
-
     const navigate = useNavigate()
-    const [login , setLogin] = useState({
+
+    const [values , setvalues] = useState({
         username:"",
         password:""
     })
@@ -40,19 +33,26 @@ export default function Login(props){
     const [loading,setLoading] = useState(false)
     const [showIcon,setShowicon] = useState(true)
     
-    function onSubmit(e){
-       Axios({
-        data:login,
-        method:"POST",
-        withcredentials:true,
-        url:`${variables.back}/login`
-       }).then((res)=>{
-        res.data.erro?alert(res.data.mensagem) :navigate("/home")
-       });
+    function onSubmit(values){
+        Axios({
+            method: "POST",
+            data: values,
+            withCredentials: true,
+            url: `${variables.back}/login`,
+          }).then((res) => {
+            if(res.data.erro){
+            } else {
+              navigate("/home");
+              window.location.reload();
+            }
+          });
     }
     
     return(
         <>
+         <br />
+         <br />
+
         <form>
             <Stack 
             style={{
@@ -69,10 +69,10 @@ export default function Login(props){
                 id="username"
                 type="text"
                 text="faca seu login"
-                required="true"
-                value={login.username}
+                required= {true}
+                value={values.username}
                 onChange={(e)=>{
-                    setLogin({...login,["username"]:e.target.value})
+                    setvalues({...values,["username"]:e.target.value})
                 }}
                 endAdornment={<InputAdornment position="end">
                     {<AccountCircleIcon/>}
@@ -86,10 +86,10 @@ export default function Login(props){
                 id="password"
                 type={showIcon?"text" : "password"}
                 text="faca seu login"
-                required="true"
-                value={login.password}
+                required={true}
+                value={values.password}
                 onChange={(e)=>{
-                    setLogin({...login,['password']:e.target.value})
+                    setvalues({...values,['password']:e.target.value})
                 }}
                 endAdornment={<InputAdornment position="end"><IconButton onClick={(e)=>{
                 setShowicon(!showIcon)
@@ -100,7 +100,7 @@ export default function Login(props){
                 </OutlinedInput>
             </FormControl>
               <Button onClick={()=>{
-                onSubmit()
+                onSubmit(values)
               }}>entrar</Button>
             </Stack>
         </form>
